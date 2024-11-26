@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { server } from "../main";
 
 const MessageForm = () => {
-   const url="https://hostpmern-backend.onrender.com"
+   // const url="https://hostpmern-backend.onrender.com"
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const MessageForm = () => {
       await axios
         .post(
           // "http://localhost:4000/api/v1/message/send",
-          url + "/api/v1/message/send",
+          `${server}/api/v1/message/send`,
         
           { firstName, lastName, email, phone, message },
           {
