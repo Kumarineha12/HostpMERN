@@ -8,7 +8,7 @@ import { MdAddModerator } from "react-icons/md";
 import { IoPersonAddSharp } from "react-icons/io5";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     await axios
-      .get("http://localhost:4000/api/v1/user/admin/logout", {
+      .get(`${server}/api/v1/user/admin/logout`, {
         withCredentials: true,
       })
       .then((res) => {
