@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import { Navigate } from "react-router-dom";
 
 const Doctors = () => {
@@ -11,7 +11,7 @@ const Doctors = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/user/doctors",
+          `${server}/api/v1/user/doctors`,
           { withCredentials: true }
         );
         setDoctors(data.doctors);
