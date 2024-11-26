@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import AddNewDoctor from "./components/AddNewDoctor";
 import Messages from "./components/Messages";
 import Doctors from "./components/Doctors";
-import { Context } from "./main";
+import { Context, server } from "./main";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,7 +21,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/admin/me",
+          ~${server}/api/v1/user/admin/me`,
           {
             withCredentials: true,
           }
