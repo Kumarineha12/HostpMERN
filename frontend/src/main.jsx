@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
+export const server = "https://hostpmern-backend.onrender.com";
 
 export const Context = createContext({
   isAuthenticated: false,
