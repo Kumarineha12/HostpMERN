@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const url="https://hostpmern-backend.onrender.com"
 
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
@@ -26,7 +25,7 @@ const Register = () => {
       await axios
         .post(
           // "http://localhost:4000/api/v1/user/patient/register",
-           url + "/api/v1/user/patient/register",
+           `${server}/api/v1/user/patient/register`,
 
           { firstName, lastName, email, phone, nic, dob, gender, password, role:"Patient" },
           {
