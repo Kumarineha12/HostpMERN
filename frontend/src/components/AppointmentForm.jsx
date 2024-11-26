@@ -3,9 +3,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import {useNavigate} from "react-router-dom"
+import {server } from "../main";
+
 
 const AppointmentForm = () => {
-   const url="https://hostpmern-backend.onrender.com"
+   // const url="https://hostpmern-backend.onrender.com"
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,7 +41,7 @@ const navigateTo= useNavigate();
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        url + "/api/v1/user/doctors",
+        `${server}/api/v1/user/doctors`,
        // "http://localhost:4000/api/v1/user/doctors",
    
         { withCredentials: true }
@@ -55,7 +57,7 @@ const navigateTo= useNavigate();
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
         // "http://localhost:4000/api/v1/appointment/post",
-         url + "/api/v1/appointment/post",
+         `${server}/api/v1/appointment/post`,
        
         {
           firstName,
